@@ -14,8 +14,8 @@ import iso8601
 
 
 def format_open_tag(name, attrs):
-    attrs = [u'%s="%s"' % attr for attr in attrs.items()]
-    return u"<%s %s>" % (name, ' '.join(attrs))
+    attrs = ['%s="%s"' % attr for attr in attrs.items()]
+    return "<%s %s>" % (name, ' '.join(attrs))
 
 
 class ElementHandler(object):
@@ -81,8 +81,8 @@ class NoTypeHandler(ElementHandler):
         if self._dict:
             return self._dict
         if self._string_parts:
-            val = u''.join(self._string_parts)
-            val = self.wspace_re.sub(u' ', val)
+            val = ''.join(self._string_parts)
+            val = self.wspace_re.sub(' ', val)
             val = val.strip()
             return val
         return self.default
