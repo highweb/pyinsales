@@ -12,9 +12,9 @@ def compose(data, root, arrays={}):
 
 def compose_element(key, value, arrays={}):
     e = et.Element(key)
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         e.text = value
-    elif isinstance(value, (int, long)):
+    elif isinstance(value, (int)):
         e.attrib['type'] = 'integer'
         e.text = str(value)
     elif isinstance(value, Decimal):
@@ -31,7 +31,7 @@ def compose_element(key, value, arrays={}):
         for x in value:
             e.append(compose_element(e_key, x, arrays))
     elif isinstance(value, collections.Mapping):
-        for key, value in value.iteritems():
+        for key, value in value.items():
             e.append(compose_element(key, value, arrays))
     else:
         raise TypeError("Value %r has unsupported type %s" % (value, type(value)))
