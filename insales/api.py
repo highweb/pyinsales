@@ -8,6 +8,7 @@ from insales.connection import Connection
 class InSalesApi(object):
 
     arrays = {
+        'properties-attributes' : 'property-attribute',
         'variants'              : 'variant',
         'variants-attributes'   : 'variant',
         'options'               : 'option',
